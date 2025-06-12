@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Demo.Models.NumberModel
+
+<h2>Add Two Numbers</h2>
+
+<form asp-action="AddNumbers" method="post">
+    <div>
+        <label>Number 1:</label>
+        <input asp-for="Number1" type="number" />
+    </div>
+    <div>
+        <label>Number 2:</label>
+        <input asp-for="Number2" type="number" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<@if (Model.Result != 0 || (Model.Number1 == 0 && Model.Number2 == 0)) 
+{
+    <p>The result is @Model.Result</p>
+}
